@@ -1,13 +1,10 @@
 import { combineReducers } from 'redux';
-import {
-  numberCollectionReducer,
-  NumberCollectionState
-} from './number-collection.reducer';
+import { userProfileReducer, UserProfileState } from './UserProfile';
 
 export interface State {
-  numberCollection: NumberCollectionState;
+	userProfileReducer: UserProfileState;
 }
 
-export const rootReducers = combineReducers<State>({
-  numberCollection: numberCollectionReducer
+export const reducers = combineReducers<State>({
+	userProfileReducer
 });

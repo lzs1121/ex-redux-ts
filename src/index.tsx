@@ -1,6 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import { NumberViewerComponent } from './components';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
 
-ReactDOM.render(<NumberViewerComponent />, document.getElementById('root'));
+import { reducers } from './reducers';
+import { HelloWorldContainer } from './components';
+
+const store = createStore(reducers);
+
+ReactDOM.render(
+	<Provider store={store}>
+		<HelloWorldContainer />
+	</Provider>,
+	document.getElementById('root')
+);
