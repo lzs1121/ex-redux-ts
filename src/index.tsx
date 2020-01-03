@@ -5,12 +5,16 @@ import { Provider } from 'react-redux';
 
 import { reducers } from './reducers';
 import { HelloWorldContainer } from './components';
+import { NameEditContainer } from './components';
+import { ColorDisplayer } from './components/colorDisplayer/colorDisplayer';
 
 const store = createStore(reducers);
 
 ReactDOM.render(
-	<Provider store={store}>
-		<HelloWorldContainer />
-	</Provider>,
-	document.getElementById('root')
+  <Provider store={store}>
+    <NameEditContainer />
+    <HelloWorldContainer />
+    <ColorDisplayer />
+  </Provider>,
+  document.getElementById('root')
 );
