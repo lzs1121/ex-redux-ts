@@ -6,15 +6,19 @@ import { Provider } from 'react-redux';
 import { reducers } from './reducers';
 import { HelloWorldContainer } from './components';
 import { NameEditContainer } from './components';
-import { ColorDisplayer } from './components/colorDisplayer/colorDisplayer';
+import { ColorDisplayerContainer } from './components/colorDisplayer/colorDisplayContainer';
+import { ColorPickerContainer } from './components/colorPicker/colorPickerContainer';
 
 const store = createStore(reducers);
 
 ReactDOM.render(
-  <Provider store={store}>
-    <NameEditContainer />
-    <HelloWorldContainer />
-    <ColorDisplayer />
-  </Provider>,
-  document.getElementById('root')
+	<Provider store={store}>
+		<NameEditContainer />
+		<HelloWorldContainer />
+		<br />
+		<ColorDisplayerContainer />
+		<br />
+		<ColorPickerContainer />
+	</Provider>,
+	document.getElementById('root')
 );

@@ -1,11 +1,16 @@
 import * as React from 'react';
+import { Color } from '../../model/color';
 
-export const ColorDisplayer = () => {
-  let divStyle = {
-    width: '120px',
-    height: '80px',
-    backgroundColor: `rgb(20, 22, 32)`
-  };
+interface Props {
+	color: Color;
+}
 
-  return <div style={divStyle}></div>;
+export const ColorDisplayer = (props: Props) => {
+	let divStyle = {
+		width: '120px',
+		height: '80px',
+		backgroundColor: `rgb(${props.color.red},${props.color.green}, ${props.color.blue})`
+	};
+
+	return <div style={divStyle}></div>;
 };

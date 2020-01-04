@@ -4,18 +4,18 @@ import { updateUserProfileName } from '../../actions/UpdateUserProfileName';
 import { State } from '../../reducers';
 
 const mapStateToProps = (state: State) => {
-  return {
-    userName: state.userProfileReducer.firstname
-  };
+	return {
+		userName: state.userProfileReducer.firstname
+	};
 };
 
 const mapDispatchToProps = (dispatch: any) => {
-  return {
-    onChange: (name: string) => dispatch(updateUserProfileName(name))
-  };
+	return {
+		onChange: (name: string) => dispatch(updateUserProfileName(name))
+	};
 };
 
 export const NameEditContainer = connect(
-  mapStateToProps,
-  mapDispatchToProps
+	mapStateToProps,
+	mapDispatchToProps
 )(NameEditComponent);
