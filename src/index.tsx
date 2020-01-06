@@ -1,24 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware, compose } from 'redux';
 import { Provider } from 'react-redux';
+import reduxThunk from 'redux-thunk';
 
 import { reducers } from './reducers';
-import { HelloWorldContainer } from './components';
-import { NameEditContainer } from './components';
-import { ColorDisplayerContainer } from './components/colorDisplayer/colorDisplayContainer';
-import { ColorPickerContainer } from './components/colorPicker/colorPickerContainer';
+import { App } from './app';
 
-const store = createStore(reducers);
+const composeEnhancers = compose;
+
+const store = createStore(
+	reducers,
+	composeEnhancers(applyMiddleware(reduxThunk))
+);
 
 ReactDOM.render(
 	<Provider store={store}>
-		<NameEditContainer />
-		<HelloWorldContainer />
-		<br />
-		<ColorDisplayerContainer />
-		<br />
-		<ColorPickerContainer />
+		<>
+			<App />
+		</>
 	</Provider>,
 	document.getElementById('root')
 );
